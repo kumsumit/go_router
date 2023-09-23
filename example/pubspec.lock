@@ -110,7 +110,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "10.2.0"
+    version: "11.0.0"
   logging:
     dependency: "direct main"
     description:
@@ -199,7 +199,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "1d6e1c5fae93958d50ce0595ef687d8195088d21"
+      resolved-ref: "3f77202a425698dc76188933bde3738a0df4b21e"
       url: "https://github.com/kumsumit/plugin_platform_interface.git"
     source: git
     version: "2.1.6"
@@ -332,7 +332,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "07c6fd4ffa0f7644598fc0e7157d896dd186cd61"
+      resolved-ref: f660712934b77066c6c7c422c7b667a681eaa7da
       url: "https://github.com/kumsumit/url_launcher.git"
     source: git
     version: "6.1.14"
