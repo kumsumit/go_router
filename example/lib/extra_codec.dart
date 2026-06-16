@@ -1,4 +1,4 @@
-// Copyright 2013 The Flutter Authors. All rights reserved.
+// Copyright 2013 The Flutter Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -29,9 +29,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router,
-    );
+    return MaterialApp.router(routerConfig: _router);
   }
 }
 
@@ -49,9 +47,11 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-                "If running in web, use the browser's backward and forward button to test extra codec after setting extra several times."),
+              "If running in web, use the browser's backward and forward button to test extra codec after setting extra several times.",
+            ),
             Text(
-                'The extra for this page is: ${GoRouterState.of(context).extra}'),
+              'The extra for this page is: ${GoRouterState.of(context).extra}',
+            ),
             ElevatedButton(
               onPressed: () => context.go('/', extra: ComplexData1('data')),
               child: const Text('Set extra to ComplexData1'),
@@ -109,14 +109,14 @@ class _MyExtraDecoder extends Converter<Object?, Object?> {
     if (input == null) {
       return null;
     }
-    final List<Object?> inputAsList = input as List<Object?>;
+    final inputAsList = input as List<Object?>;
     if (inputAsList[0] == 'ComplexData1') {
       return ComplexData1(inputAsList[1]! as String);
     }
     if (inputAsList[0] == 'ComplexData2') {
       return ComplexData2(inputAsList[1]! as String);
     }
-    throw FormatException('Unable tp parse input: $input');
+    throw FormatException('Unable to parse input: $input');
   }
 }
 
@@ -127,11 +127,11 @@ class _MyExtraEncoder extends Converter<Object?, Object?> {
     if (input == null) {
       return null;
     }
-    switch (input.runtimeType) {
-      case ComplexData1:
-        return <Object?>['ComplexData1', (input as ComplexData1).data];
-      case ComplexData2:
-        return <Object?>['ComplexData2', (input as ComplexData2).data];
+    switch (input) {
+      case ComplexData1 _:
+        return <Object?>['ComplexData1', input.data];
+      case ComplexData2 _:
+        return <Object?>['ComplexData2', input.data];
       default:
         throw FormatException('Cannot encode type ${input.runtimeType}');
     }
