@@ -1235,10 +1235,9 @@ class StatefulNavigationShell extends StatefulWidget {
   /// Constructs an [StatefulNavigationShell].
   StatefulNavigationShell({
     required this.shellRouteContext,
-    required GoRouter router,
+    required this._router,
     required this.containerBuilder,
   }) : assert(shellRouteContext.route is StatefulShellRoute),
-       _router = router,
        currentIndex = _indexOfBranchNavigatorKey(
          shellRouteContext.route as StatefulShellRoute,
          shellRouteContext.navigatorKey,

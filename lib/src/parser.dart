@@ -355,15 +355,13 @@ class _OnEnterHandler {
   /// Creates an [_OnEnterHandler] instance.
   ///
   /// * [configuration] is the current route configuration containing all route definitions.
-  /// * [router] is the [GoRouter] instance used for navigation actions.
-  /// * [onParserException] is an optional exception handler invoked on route parsing errors.
+  /// * [_router] is the [GoRouter] instance used for navigation actions.
+  /// * [_onParserException] is an optional exception handler invoked on route parsing errors.
   _OnEnterHandler({
     required RouteConfiguration configuration,
-    required GoRouter router,
-    required ParserExceptionHandler? onParserException,
-  }) : _onParserException = onParserException,
-       _configuration = configuration,
-       _router = router;
+    required this._router,
+    required this._onParserException,
+  }) : _configuration = configuration;
 
   /// The current route configuration.
   ///
